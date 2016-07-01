@@ -1,14 +1,6 @@
 # NetBeans specific #
-nbproject/*
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-!nbproject/project.properties
-!nbproject/project.xml
-core
+
+
 
 
 *.class
