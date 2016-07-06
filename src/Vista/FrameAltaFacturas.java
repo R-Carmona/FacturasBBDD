@@ -352,6 +352,7 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiBajaMatriculaActionPerformed
 
     private void jbNuevaFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevaFacturaActionPerformed
+       
         double tipoIva=0;
         double tipoRetencion=0;
         String linea=null;
@@ -385,6 +386,7 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
         Calendar fechaPorte = jdcFechaPorteNew.getCalendar();
         String origen = tfOrigenNew.getText();
         String destino = tfDestinoNew.getText();
+        
         float precio = Float.parseFloat(tfPrecioNew.getText());
         System.out.println(precio);
         
@@ -404,15 +406,21 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
        
        //Declaramos la variable y le asignamos un evento
         char car = evt.getKeyChar();
+        
+      
+        
+        
+        
+        
         //Condición que nos permite ingresar números con su punto decimal
         if((car<'0' || car>'9') && tfPrecioNew.getText().contains(".") //&& tfPrecioNew.getText().contains(",") 
                 && (car!=(char)KeyEvent.VK_BACK_SPACE)){//Esto nos permite ingresar números del 1-9 y también de un punto decimal
             evt.consume();
-            JOptionPane.showMessageDialog(null,"Solo se admite números y punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Solo se admite números y un punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
         }else if((car<'0' || car>'9') && (car!='.') //&& (car!=',')
                 && (car!=(char)KeyEvent.VK_BACK_SPACE)){//Esto nos permite ingresar números del 1-9 y también de un punto o coma decimal
             evt.consume();
-            JOptionPane.showMessageDialog(null,"Solo se admite números y punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Solo se admite números y un punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_tfPrecioNewKeyTyped
 
