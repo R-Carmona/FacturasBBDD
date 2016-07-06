@@ -14,7 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
- * @author juangit 
+ * @author juan
  */
 public class Principal {
 
@@ -26,5 +26,3 @@ public class Principal {
          
     }
 }
-
-//Hola git.
