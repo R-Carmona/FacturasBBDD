@@ -735,7 +735,12 @@ public class FramePrincipal extends javax.swing.JFrame {
         
         tfDestinoPorte.setText("");
         tfOrigenPorte.setText("");
-        actualizarTablePortes();        
+        actualizarTablePortes();     
+         
+        
+        
+        
+        
     }//GEN-LAST:event_jbConsultarTodoPorteActionPerformed
 
    public void actualizarTablePortes(){
@@ -829,19 +834,19 @@ public class FramePrincipal extends javax.swing.JFrame {
                     break;
                 case 1:
                     jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/00/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/02/"+year));
+                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/03/"+year));
                     break;
                 case 2:
-                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/03/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/05/"+year));
+                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/04/"+year));
+                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("30/06/"+year));
                     break;
                 case 3:
-                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/06/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("30/08/"+year));
+                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/07/"+year));
+                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("30/09/"+year));
                     break;
                 case 4:
                     jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/09/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/1/"+year));
+                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/12/"+year));
                     break;
             }
             
@@ -1190,6 +1195,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }
     
     public void actualizarTableFacturas(){
+        
         int idClienteSeleccionadoCombo = comboClientesFactura.getSelectedIndex();
         String aliasClienteSeleccionadoCombo = comboClientesFactura.getItemAt(idClienteSeleccionadoCombo);
         int  idClienteSel = modelo.consultaIdClientePorAlias(aliasClienteSeleccionadoCombo);
@@ -1215,6 +1221,17 @@ public class FramePrincipal extends javax.swing.JFrame {
             if(hastaC==null){
                 hastaC=Calendar.getInstance();
             }
+            
+            if (desdeC.compareTo(hastaC)==1) {
+                
+                JOptionPane.showMessageDialog(null, "Resultado de búsqueda nulo. La fecha Desde, es superior a la de Hasta.");
+                
+                
+            }
+            
+            
+            
+            
             for(Factura f:listaFacturas){
                 if(f.getFecha().before(hastaC) && f.getFecha().after(desdeC)){
                     listaFechasFiltradas.add(f);
