@@ -5,6 +5,7 @@
  */
 package Principal;
 
+import Vista.FrameEleccionBBDD;
 import Vista.FramePrincipal;
 
 import dao.Modelo;
@@ -19,10 +20,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Principal {
 
     public static void main(String[] args) {
+        
+        
+        FrameEleccionBBDD ventana = new FrameEleccionBBDD();     
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Modelo modelo = (Modelo)context.getBean("modelo");
-        JFrame miFrame = new FramePrincipal(modelo);
+        
          
     }
 }
