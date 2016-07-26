@@ -2,7 +2,7 @@
 
 --posibilidad de añadir atributo "pais" para ver si el iva y retencion de factura sera 0
 CREATE TABLE TClientes (
-Id		INTEGER			PRIMARY KEY AUTOINCREMENT,
+Id		INTEGER			PRIMARY KEY AUTO_INCREMENT,
 Alias		VARCHAR(20)		NOT NULL UNIQUE,
 CIF		VARCHAR(9)		NOT NULL,
 Direccion1	VARCHAR(20)		NOT NULL,

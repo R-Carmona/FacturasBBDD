@@ -6,7 +6,12 @@
 package Vista;
 
 import dao.Modelo;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -42,11 +47,11 @@ public class FrameEleccionBBDD extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(300, 500));
-        getContentPane().setLayout(new java.awt.GridLayout(0, 1));
+        getContentPane().setLayout(new java.awt.GridLayout(3, 1));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Selecione una tipo de BBDD:");
+        jLabel1.setText("Selecione BBDD:");
         getContentPane().add(jLabel1);
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
@@ -71,18 +76,26 @@ public class FrameEleccionBBDD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:      
+              
         
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext_sql.xml");
         Modelo modelo = (Modelo)context.getBean("modelo");
         JFrame miFrame = new FramePrincipal(modelo);
         
+        
+        
+        
         dispose();
+       
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+       
+        
         
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Modelo modelo = (Modelo)context.getBean("modelo");
