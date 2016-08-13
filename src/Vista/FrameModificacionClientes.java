@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 
@@ -301,6 +302,10 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCerrarActionPerformed
 
     private void jbNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoClienteActionPerformed
+    int opcion=JOptionPane.showConfirmDialog(null, "¿Desea modificar el cliente?");
+    if (opcion==0){
+        
+    
         int indiceClienteModificar=comboClientesModificados.getSelectedIndex();
         String clienteModificarString=comboClientesModificados.getItemAt(indiceClienteModificar);
         //Id del cliente que vamos a modificar
@@ -309,7 +314,11 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         nuevo.setId(nuevoCliente);
         m.modificarCliente(nuevo);
         fp.llenarTablaClientes();
-
+    }else{
+        if(opcion==1){
+            JOptionPane.showMessageDialog(null, "Operación cancelada");
+        }
+    }
     }//GEN-LAST:event_jbNuevoClienteActionPerformed
 
     private void comboClientesModificadosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboClientesModificadosItemStateChanged

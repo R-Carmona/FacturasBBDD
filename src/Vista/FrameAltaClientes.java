@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 public class FrameAltaClientes extends javax.swing.JFrame {
@@ -362,6 +363,7 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         tfContactoNew.setText("");
         fp.llenarTablaClientes();
         fp.getComboClientesFactura().addItem(alias);
+        JOptionPane.showMessageDialog(null, "Alta realizada");
         this.hide();
         
     }//GEN-LAST:event_jbNuevoClienteActionPerformed
