@@ -827,26 +827,33 @@ public class FramePrincipal extends javax.swing.JFrame {
     public void operacionTrimestral(){
         try {
             int year = Calendar.getInstance().get(Calendar.YEAR);
+            
             int opcion =  jcbTrimestral.getSelectedIndex();
+            
             switch(opcion){
                 case 0:
                     jbConsultarTodoFactura.doClick();
                     break;
                 case 1:
-                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/00/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/03/"+year));
+                     jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/03/"+year));
+                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/"+year));
+                    
+                   
                     break;
                 case 2:
+                         jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("30/06/"+year));
                     jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/04/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("30/06/"+year));
+               
                     break;
                 case 3:
+                     jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("30/09/"+year));
                     jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/07/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("30/09/"+year));
+                   
                     break;
                 case 4:
-                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/09/"+year));
-                    jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/12/"+year));
+                     jdcFechaFacturaH.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("31/12/"+year));
+                    jdcFechaFacturaD.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/10/"+year));
+                   
                     break;
             }
             
@@ -995,8 +1002,13 @@ public class FramePrincipal extends javax.swing.JFrame {
         
         tfDestino.setText("");
         tfOrigen.setText("");
-        jdcFechaFacturaD.setDate(null);
+        
         jdcFechaFacturaH.setDate(null);
+        
+        jdcFechaFacturaD.setDate(null);
+        
+        
+        
         actualizarTableFacturas();
     }                                                      
 
@@ -1204,10 +1216,13 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public void actualizarTableFacturas(){
         
+        Calendar desdeC=null;
+        Calendar hastaC=null;
+        
         int idClienteSeleccionadoCombo = comboClientesFactura.getSelectedIndex();
         String aliasClienteSeleccionadoCombo = comboClientesFactura.getItemAt(idClienteSeleccionadoCombo);
         int  idClienteSel = modelo.consultaIdClientePorAlias(aliasClienteSeleccionadoCombo);
-        System.out.println(idClienteSel);
+        //System.out.println(idClienteSel);
         int indiceMat = cbMatricula.getSelectedIndex();
         String mat = cbMatricula.getItemAt(indiceMat);
         
@@ -1218,25 +1233,12 @@ public class FramePrincipal extends javax.swing.JFrame {
                     tfOrigen.getText(), tfDestino.getText());
 
             ArrayList<Factura> listaFechasFiltradas = new ArrayList<Factura>();
-            Calendar desdeC=jdcFechaFacturaD.getCalendar();
-            Calendar hastaC=jdcFechaFacturaH.getCalendar();
+            
+            
+            
+            desdeC=jdcFechaFacturaD.getCalendar();
+            hastaC=jdcFechaFacturaH.getCalendar();
 
-            if(desdeC==null){
-                Calendar desdeDefecto=Calendar.getInstance();
-                desdeDefecto.set(1990, 1, 1);
-                desdeC=desdeDefecto;
-            }
-            if(hastaC==null){
-                hastaC=Calendar.getInstance();
-            }
-            
-            if (desdeC.compareTo(hastaC)==1) {
-                
-                JOptionPane.showMessageDialog(null, "Resultado de búsqueda nulo. La fecha Desde, es superior a la de Hasta.");
-                
-                
-            }
-            
             
             
             
@@ -1269,6 +1271,23 @@ public class FramePrincipal extends javax.swing.JFrame {
         }catch(NullPointerException ex){
             
         }
+        
+         //Modificación para mostrar mensaje de errror en las fechas.
+            if(desdeC==null){
+                Calendar desdeDefecto=Calendar.getInstance();
+                desdeDefecto.set(1990, 1, 1);
+                desdeC=desdeDefecto;
+            }
+            if(hastaC==null){
+                hastaC=Calendar.getInstance();
+            }
+            
+            if (desdeC.compareTo(hastaC)==1) {
+                
+                JOptionPane.showMessageDialog(null, "Resultado de búsqueda nulo. La fecha Desde, es superior a la de Hasta.");
+                
+                
+            }
         
     }
 
