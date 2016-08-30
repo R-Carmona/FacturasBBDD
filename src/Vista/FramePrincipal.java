@@ -928,21 +928,29 @@ public class FramePrincipal extends javax.swing.JFrame {
         new FrameAltaClientes(this.modelo,this).setVisible(true);
     }                                              
 
-    private void jbBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        if(jrbHabilitados.isSelected()){
-            int indiceClienteModificar=jtClientes.getSelectedRow();
-            try{
-                String alias=jtClientes.getValueAt(indiceClienteModificar, 0)+"";
-                int idC = modelo.consultaIdClientePorAlias(alias);
-                modelo.inhabilitarCliente(idC);
-                modeloTablaClientes.removeRow(indiceClienteModificar);
-            }catch(ArrayIndexOutOfBoundsException ex){
-                JOptionPane.showMessageDialog(null, "No ha seleccionado ningun cliente");
+    private void jbBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {   
+            if(jrbHabilitados.isSelected()){
+                int opcion=JOptionPane.showConfirmDialog(null, "Se procederá a inhabilitar el cliente, ¿Está seguro?");
+                if (opcion==0){
+                    int indiceClienteModificar=jtClientes.getSelectedRow();
+                    try{
+                        String alias=jtClientes.getValueAt(indiceClienteModificar, 0)+"";
+                        int idC = modelo.consultaIdClientePorAlias(alias);
+                        modelo.inhabilitarCliente(idC);
+                        modeloTablaClientes.removeRow(indiceClienteModificar);
+                    }catch(ArrayIndexOutOfBoundsException ex){
+                        JOptionPane.showMessageDialog(null, "No ha seleccionado ningun cliente");
+                    }
+                }else{
+                    if(opcion==1){
+                        JOptionPane.showMessageDialog(null, "Operación Cancelada");
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Este cliente ya está deshabilitado");
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Este cliente ya está deshabilitado");
-        }
-    }                                               
+    }
+    
 
     private void tfOrigenKeyReleased(java.awt.event.KeyEvent evt) {                                     
         actualizarTableFacturas();

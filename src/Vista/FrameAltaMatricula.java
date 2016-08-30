@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 
@@ -162,7 +163,7 @@ public class FrameAltaMatricula extends javax.swing.JFrame {
         faf.getJcbMatriculaNew().addItem(tfMatriculaNew.getText());
         this.faf.getFp().getCbMatricula().addItem(tfMatriculaNew.getText());
         this.faf.getFp().getCbMatriculaPorte().addItem(tfMatriculaNew.getText());
-        
+        JOptionPane.showMessageDialog(this, "Nueva matrícula guardada");
         tfMatriculaNew.setText("");
     }//GEN-LAST:event_jbNuevaMatriculaActionPerformed
 
