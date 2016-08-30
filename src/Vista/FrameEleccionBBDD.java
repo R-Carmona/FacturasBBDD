@@ -94,15 +94,7 @@ public class FrameEleccionBBDD extends javax.swing.JFrame {
           dispose();
         
         
-       
-        
-        
-        
-        
-        
-        
-       
-        
+      
        
         
     }//GEN-LAST:event_jButton2ActionPerformed

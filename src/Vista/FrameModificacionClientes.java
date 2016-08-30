@@ -115,6 +115,12 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         jlZonaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlZonaNew.setText("Zona:");
 
+        tfZonaNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfZonaNewKeyReleased(evt);
+            }
+        });
+
         jlTelefono1New.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlTelefono1New.setText("Telefono1:");
 
@@ -359,6 +365,10 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
     private void tfPaisNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPaisNewKeyReleased
          tfPaisNew.setText(tfPaisNew.getText().toUpperCase());
     }//GEN-LAST:event_tfPaisNewKeyReleased
+
+    private void tfZonaNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfZonaNewKeyReleased
+        tfZonaNew.setText(tfZonaNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfZonaNewKeyReleased
 
 
 
