@@ -156,6 +156,11 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
                 comboNFacturasItemStateChanged(evt);
             }
         });
+        comboNFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNFacturasActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("€");
@@ -392,6 +397,10 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
     private void tfDestinoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDestinoNewKeyReleased
         tfDestinoNew.setText(tfDestinoNew.getText().toUpperCase());
     }//GEN-LAST:event_tfDestinoNewKeyReleased
+
+    private void comboNFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNFacturasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboNFacturasActionPerformed
 
 
 

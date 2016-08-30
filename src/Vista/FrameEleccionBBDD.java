@@ -7,11 +7,15 @@ package Vista;
 
 import dao.Modelo;
 import java.awt.image.BufferedImage;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -79,14 +83,26 @@ public class FrameEleccionBBDD extends javax.swing.JFrame {
         // TODO add your handling code here:      
               
         
+       
+       
+        
+       
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext_sql.xml");
         Modelo modelo = (Modelo)context.getBean("modelo");
         JFrame miFrame = new FramePrincipal(modelo);
+            
+          dispose();
+        
+        
+       
         
         
         
         
-        dispose();
+        
+        
+       
+        
        
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -94,7 +110,7 @@ public class FrameEleccionBBDD extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-       
+        
         
         
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -102,6 +118,7 @@ public class FrameEleccionBBDD extends javax.swing.JFrame {
         JFrame miFrame = new FramePrincipal(modelo);
         
         dispose();
+        
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

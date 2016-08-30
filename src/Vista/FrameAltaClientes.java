@@ -350,7 +350,12 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         String telefono1 = tfTelefono1New.getText();
         String telefono2=tfTelefono2New.getText();
         String contacto = tfContactoNew.getText();
+        
+        
+        
         modelo.altaCliente(new Cliente(alias, cif, direccion,direccion2, zona, pais, telefono1, telefono2, contacto));
+        
+        
         tfAliasClienteNew.setText("");
         tfCIFNew.setText("");
         tfDireccionNew.setText("");
@@ -360,6 +365,8 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         tfTelefono1New.setText("");
         tfTelefono2New.setText("");
         tfContactoNew.setText("");
+        
+        
         fp.llenarTablaClientes();
         fp.getComboClientesFactura().addItem(alias);
         this.hide();

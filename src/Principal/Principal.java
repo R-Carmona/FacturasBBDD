@@ -22,7 +22,8 @@ public class Principal {
     public static void main(String[] args) {
         
         
-        FrameEleccionBBDD ventana = new FrameEleccionBBDD();     
+        FrameEleccionBBDD ventana = new FrameEleccionBBDD();
+        
 
         
          
