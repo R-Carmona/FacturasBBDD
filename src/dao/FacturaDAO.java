@@ -82,7 +82,9 @@ public class FacturaDAO {
     public ArrayList<Factura> consultaParametrizada(int idCliente,String matricula,
         String origen,String destino){
         if(matricula.equals("Seleccione matricula")) matricula="";
-        System.out.println("matricula vale"+ matricula);
+        
+        //System.out.println("matricula vale"+ matricula);
+        
         String sql="";
         if(idCliente!=-1){
             sql = "SELECT * FROM TFacturas where IdCliente = "

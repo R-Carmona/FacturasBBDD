@@ -81,7 +81,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jpConsultasBajas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtClientes = new javax.swing.JTable();
-        jbBorrarCliente = new javax.swing.JButton();
         jlAliasCliente = new javax.swing.JLabel();
         tfAliasCliente = new javax.swing.JTextField();
         jbNuevoCliente = new javax.swing.JButton();
@@ -92,7 +91,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jrbTodos = new javax.swing.JRadioButton();
         jrbHabilitados = new javax.swing.JRadioButton();
         jlTipoCliente = new javax.swing.JLabel();
-        jbHabilitarCliente = new javax.swing.JButton();
         jpPortes = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtPortes = new javax.swing.JTable();
@@ -174,14 +172,14 @@ public class FramePrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cliente", "Zona", "Telefono 1", "Telefono 2", "Persona contacto", "Inhabilitado"
+                "Cliente", "Zona", "Telefono 1", "Telefono 2", "Persona contacto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -193,15 +191,6 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jtClientes);
-
-        jbBorrarCliente.setBackground(new java.awt.Color(226, 179, 44));
-        jbBorrarCliente.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jbBorrarCliente.setText("Inhabilitar Cliente");
-        jbBorrarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBorrarClienteActionPerformed(evt);
-            }
-        });
 
         jlAliasCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlAliasCliente.setText("Cliente:");
@@ -267,15 +256,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jlTipoCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlTipoCliente.setText("Tipo de cliente:");
 
-        jbHabilitarCliente.setBackground(new java.awt.Color(226, 179, 44));
-        jbHabilitarCliente.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jbHabilitarCliente.setText("Habilitar Cliente");
-        jbHabilitarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbHabilitarClienteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jpConsultasBajasLayout = new javax.swing.GroupLayout(jpConsultasBajas);
         jpConsultasBajas.setLayout(jpConsultasBajasLayout);
         jpConsultasBajasLayout.setHorizontalGroup(
@@ -297,7 +277,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                         .addComponent(jrbTodos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jrbHabilitados)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                         .addComponent(jbConsultarClientes)
                         .addGap(58, 58, 58))
                     .addGroup(jpConsultasBajasLayout.createSequentialGroup()
@@ -306,13 +286,9 @@ public class FramePrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpConsultasBajasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbNuevoCliente)
-                .addGap(18, 18, 18)
+                .addGap(49, 49, 49)
                 .addComponent(jbModificarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbHabilitarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(79, 79, 79))
         );
         jpConsultasBajasLayout.setVerticalGroup(
             jpConsultasBajasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,12 +310,10 @@ public class FramePrincipal extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpConsultasBajasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbBorrarCliente)
+                .addGroup(jpConsultasBajasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbModificarCliente)
-                    .addComponent(jbNuevoCliente)
-                    .addComponent(jbHabilitarCliente))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jbNuevoCliente))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jtpMenuPrincipal.addTab("Clientes", jpConsultasBajas);
@@ -1311,12 +1285,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JButton jbBorrarCliente;
     private javax.swing.JButton jbConfiguracion;
     private javax.swing.JButton jbConsultarClientes;
     private javax.swing.JButton jbConsultarTodoFactura;
     private javax.swing.JButton jbConsultarTodoPorte;
-    private javax.swing.JButton jbHabilitarCliente;
     private javax.swing.JButton jbImprimirFactura;
     private javax.swing.JButton jbModificarCliente;
     private javax.swing.JButton jbModificarFactura;

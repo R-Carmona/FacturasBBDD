@@ -17,6 +17,7 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
 
     private FramePrincipal fp;
     private Modelo m;
+    public static int indiceClienteModificar;
     
     private ArrayList<Cliente> listaClientesModificar;
     public FrameModificacionClientes(Modelo m, FramePrincipal fp) {
@@ -68,6 +69,8 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         tfDireccion2New = new javax.swing.JTextField();
         jlPaisNew = new javax.swing.JLabel();
         tfPaisNew = new javax.swing.JTextField();
+        jbBorrarCliente = new javax.swing.JButton();
+        jbHabilitarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FacturacionApp Pepito");
@@ -168,6 +171,11 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
                 comboClientesModificadosItemStateChanged(evt);
             }
         });
+        comboClientesModificados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboClientesModificadosActionPerformed(evt);
+            }
+        });
 
         jlDireccion2New.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccion2New.setText("Direccion2:");
@@ -184,6 +192,24 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         tfPaisNew.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfPaisNewKeyReleased(evt);
+            }
+        });
+
+        jbBorrarCliente.setBackground(new java.awt.Color(226, 179, 44));
+        jbBorrarCliente.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jbBorrarCliente.setText("Inhabilitar Cliente");
+        jbBorrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarClienteActionPerformed(evt);
+            }
+        });
+
+        jbHabilitarCliente.setBackground(new java.awt.Color(226, 179, 44));
+        jbHabilitarCliente.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jbHabilitarCliente.setText("Habilitar Cliente");
+        jbHabilitarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbHabilitarClienteActionPerformed(evt);
             }
         });
 
@@ -232,9 +258,13 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
                         .addComponent(jlPaisNew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPaisNew, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpModificacionClientesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jbHabilitarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(jbNuevoCliente)
                 .addGap(29, 29, 29)
                 .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,9 +299,13 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
                     .addComponent(jlPaisNew)
                     .addComponent(tfPaisNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addGroup(jpModificacionClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbCerrar)
-                    .addComponent(jbNuevoCliente))
+                .addGroup(jpModificacionClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpModificacionClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbBorrarCliente)
+                        .addComponent(jbHabilitarCliente))
+                    .addGroup(jpModificacionClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbCerrar)
+                        .addComponent(jbNuevoCliente)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
@@ -328,6 +362,10 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jbNuevoClienteActionPerformed
 
     private void comboClientesModificadosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboClientesModificadosItemStateChanged
+        
+        
+        
+        
         int indiceClienteModificar=comboClientesModificados.getSelectedIndex();
         String clienteModificarString=comboClientesModificados.getItemAt(indiceClienteModificar);
         //Id del cliente que vamos a modificar
@@ -370,11 +408,83 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         tfZonaNew.setText(tfZonaNew.getText().toUpperCase());
     }//GEN-LAST:event_tfZonaNewKeyReleased
 
+    private void jbBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarClienteActionPerformed
+        // TODO add your handling code here:
+         
+         
+        
+        
+        int idClientes=m.consultaIdClientePorAlias(comboClientesModificados.getSelectedItem().toString());
+        
+        m.inhabilitarCliente(idClientes);        
+        
+        
+         int opcion=JOptionPane.showConfirmDialog(this, "¿Deses inhabilitar el cliente?");
+          if(opcion==0){
+            indiceClienteModificar=FrameModificacionClientes.indiceClienteModificar;
+                //String alias=FrameModificacionClientes
+                //int idC = m.consultaIdClientePorAlias();
+                m.inhabilitarCliente(indiceClienteModificar);
+                //jbBorrarCliente.setEnabled(false);
+                JOptionPane.showMessageDialog(this, "Cliente inhabilitado y modificado");
+               
+//                modeloTablaClientes.removeRow(indiceClienteModificar);
+
+
+          }else{
+              JOptionPane.showMessageDialog(this, "Operación cancelada");
+          }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jbBorrarClienteActionPerformed
+
+    private void jbHabilitarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHabilitarClienteActionPerformed
+        
+          int idClientes=m.consultaIdClientePorAlias(comboClientesModificados.getSelectedItem().toString());
+        
+         m.habilitarCliente(idClientes);  
+        
+        
+        
+         int opcion=JOptionPane.showConfirmDialog(this, "¿Deses inhabilitar el cliente?");
+          if(opcion==0){
+              
+            indiceClienteModificar=FrameModificacionClientes.indiceClienteModificar;
+                //String alias=FrameModificacionClientes
+                //int idC = m.consultaIdClientePorAlias();
+                m.habilitarCliente(indiceClienteModificar);
+                jbBorrarCliente.setEnabled(false);
+                JOptionPane.showMessageDialog(this, "Cliente habilitado y modificado");
+               
+//                modeloTablaClientes.removeRow(indiceClienteModificar);
+
+
+          }else{
+              JOptionPane.showMessageDialog(this, "Operación cancelada");
+          }
+        
+        
+        
+    }//GEN-LAST:event_jbHabilitarClienteActionPerformed
+
+    private void comboClientesModificadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClientesModificadosActionPerformed
+        // TODO add your handling code here:
+        
+      
+        
+        
+    }//GEN-LAST:event_comboClientesModificadosActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboClientesModificados;
+    private javax.swing.JButton jbBorrarCliente;
     private javax.swing.JButton jbCerrar;
+    private javax.swing.JButton jbHabilitarCliente;
     private javax.swing.JButton jbNuevoCliente;
     private javax.swing.JLabel jlAliasClienteNew;
     private javax.swing.JLabel jlCIFNew;

@@ -66,7 +66,6 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FacturacionApp Pepito");
@@ -211,66 +210,53 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("*");
 
-        jToggleButton1.setText("jToggleButton1");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jpAltaClientesLayout = new javax.swing.GroupLayout(jpAltaClientes);
         jpAltaClientes.setLayout(jpAltaClientesLayout);
         jpAltaClientesLayout.setHorizontalGroup(
             jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAltaClientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
                 .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
+                        .addComponent(jlAliasClienteNew)
+                        .addGap(4, 4, 4)
+                        .addComponent(tfAliasClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel2)
+                        .addGap(1, 1, 1)
+                        .addComponent(jlCIFNew)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfCIFNew, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3)
                         .addGap(3, 3, 3)
+                        .addComponent(jlZonaNew)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfZonaNew, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(5, 5, 5)
+                        .addComponent(jlDireccionNew))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAltaClientesLayout.createSequentialGroup()
+                        .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlTelefono1New)
+                            .addComponent(jlTelefono2New))
+                        .addGap(4, 4, 4)
+                        .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfTelefono1New)
+                            .addComponent(tfTelefono2New))
                         .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                                .addComponent(jlAliasClienteNew)
-                                .addGap(4, 4, 4)
-                                .addComponent(tfAliasClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel2)
-                                .addGap(1, 1, 1)
-                                .addComponent(jlCIFNew)
+                                .addGap(67, 67, 67)
+                                .addComponent(jlContactoNew))
+                            .addGroup(jpAltaClientesLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfCIFNew, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel3)
-                                .addGap(3, 3, 3)
-                                .addComponent(jlZonaNew)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfZonaNew, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addGap(5, 5, 5)
-                                .addComponent(jlDireccionNew))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAltaClientesLayout.createSequentialGroup()
-                                .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlTelefono1New)
-                                    .addComponent(jlTelefono2New))
-                                .addGap(4, 4, 4)
-                                .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfTelefono1New)
-                                    .addComponent(tfTelefono2New))
-                                .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                                        .addGap(67, 67, 67)
-                                        .addComponent(jlContactoNew))
-                                    .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jlDireccion2New)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jToggleButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jlDireccion2New)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAltaClientesLayout.createSequentialGroup()
                         .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -327,16 +313,11 @@ public class FrameAltaClientes extends javax.swing.JFrame {
                     .addComponent(tfTelefono2New, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlContactoNew)
                     .addComponent(tfContactoNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jToggleButton1)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -438,14 +419,6 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         tfZonaNew.setText(tfZonaNew.getText().toUpperCase());
     }//GEN-LAST:event_tfZonaNewKeyReleased
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-        
-   
-     
-        
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -454,7 +427,6 @@ public class FrameAltaClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbNuevoCliente;
     private javax.swing.JLabel jlAliasClienteNew;
